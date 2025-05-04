@@ -20,5 +20,16 @@ After alot of messing and using both ChatGPT and googling i managed doing that w
      
 In the scripts above, after Windows will finish its installtion, the user will be promted to enter IP address, subnet mask, default gateway, DNS servers and a computer name.
 
-To use the autounattend.xml i created, you will need to edit the xml with your domain name and credantials.
+To use the autounattend.xml i created, you will need to edit the follwing part of the xml with your domain name and credantials.
 
+            <Identification>
+                <Credentials>
+                    <Domain>your.domain</Domain>
+                    <Password>password</Password>
+                    <Username>username</Username>
+                </Credentials>
+                <JoinDomain>your.domain</JoinDomain>
+                <MachineObjectOU>OU=Your,OU=PATH,DC=YOUR,DC=DOMAIN</MachineObjectOU>
+            </Identification>
+
+In case you do not want the computer to be added to a spesific OU upon creation, you can delete the <MachineObjectOU> line.
